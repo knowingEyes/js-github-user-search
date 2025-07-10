@@ -1,3 +1,6 @@
 @import "tailwindcss";
-@import "material-icons/iconfont/material-icons.css"
+@import "material-icons/iconfont/material-icons.css";
+ .material-icons {
+  font-size: revert-layer;
+  }
 
