@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gitpeek</title>
   </head>
-  <body class="">
-    <header class="px-2 py-4">
+
+  <body class="font-sans">
+    <header class="px-2 py-4 fixed z-9999 w-full text-[#fff]">
       <div class="flex flex-row align-middle justify-between">
         <sapn>Gitpeek</sapn>
         <button>
@@ -16,23 +17,38 @@
     </header>
     <main>
       <!-- Hero -->
-      <section class="">
-        <div class="pt-20 h-screen w-full px-2 container mx-auto">
-          <h1 class="text-3xl text-center">
+      <section
+        class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0"
+      >
+        <div
+          class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65"
+        ></div>
+        <div
+          class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65"
+        ></div>
+        <div
+          class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center"
+        >
+          <h1 class="text-4xl min-md:text-5xl xl:text-7xl">
             Discover GitHub Developers instantly
           </h1>
-          <p class="my-4 text-center">
-            search profiles, explore projects and track opensource activity all
+          <p
+            class="my-4 text-[1rem] max-[1000px]:w-[300px] text-center mx-auto"
+          >
+            Search profiles, explore projects and track opensource activity all
             in one place
           </p>
-          <button class="cursor-pointer p-4 w-full rounded-2xl">
+          <button
+            class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC]"
+          >
             Explore GitHub Developers
+            <span class="material-icons">arrow_outward</span>
           </button>
         </div>
       </section>
       <!-- Features highlights -->
-      <section>
-        <h2 class="text-2xl">Features Highlights:</h2>
+      <section class="h-screen">
+        <h2 class="xl:text-5xl">Features Highlights:</h2>
         <div>
           <div>Real time search.</div>
           <div>Detailed Profiles.</div>
