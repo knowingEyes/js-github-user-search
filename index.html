@@ -26,7 +26,8 @@
   </header>
   <main class="[&_h2]:xl:text-4xl [&_h2]:pt-10">
     <!-- Hero -->
-    <section id="About" class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0">
+    <section id="About"
+      class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0 px-3">
       <div
         class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65">
       </div>
@@ -48,51 +49,67 @@
       </div>
     </section>
     <!-- Features highlights -->
-    <section class=" text-[#0e0e0e] px-2 bg-[#fafafa]" id="Features">
+    <section class=" text-[#0e0e0e] px-3 bg-[#fafafa]" id="Features">
       <h2>Features Highlights:</h2>
-      <div
-        class="[&>div]:p-6 grid min-[1024px]:grid-cols-2 gap-2 [&>div]:rounded-xl mt-5 [&>div]:backdrop-blur-3xl
+      <div class="[&>div]:p-6 grid min-[1024px]:grid-cols-2 gap-y-3 gap-x-4 [&>div]:rounded-xl mt-5 [&>div]:backdrop-blur-3xl
          [&>div]:bg-white [&>div]:ring-1 [&>div]:ring-gray-200 [&>div]:shadow-md [&_p]:text-gray-500
           [&_.material-icons-outlined]:text-[#6843EC] [&_.material-icons-outlined]:min-[1024px]:text-3xl
-          [&_.material-icons-outlined]:text-2xl">
-        <div><span class="material-icons-outlined">search</span><p>Real time search.</p></div>
-        <div><span class="material-icons-outlined">person</span><p>Detailed Profiles.</p></div>
-        <div><span class="material-icons-outlined">folder_open</span><p>Repo Explorer.</p></div>
-        <div><span class="material-icons-outlined">bolt</span><p>Fast, Lightweight, Mobile Friendly</p></div>
+          [&_.material-icons-outlined]:text-2xl  [&>div]:hover:ring-[#6843EC] [&>div]:cursor-pointer
+         [&>div]:hover:shadow-xl [&>div]:hover:scale-[1.01] [&>div]:transition-all ease-in-out">
+        <div><span class="material-icons-outlined">search</span>
+          <p>Real time search.</p>
+        </div>
+        <div><span class="material-icons-outlined">person</span>
+          <p>Detailed Profiles.</p>
+        </div>
+        <div><span class="material-icons-outlined">folder_open</span>
+          <p>Repo Explorer.</p>
+        </div>
+        <div><span class="material-icons-outlined">bolt</span>
+          <p>Fast, Lightweight, Mobile Friendly</p>
+        </div>
       </div>
     </section>
     <!-- How it works -->
-    <section id="How-it-works">
+    <section id="How-it-works" class="px-3 bg-[#f5ffd8] mt-20">
       <h2 class="text-2xl">How it works?</h2>
-      <h3>
+      <h3 class="text-[1rem] mb-3">
         From search to discovery here's what happens when you use Gitpeek
       </h3>
-      <div>
-        <div class="flow-num">1</div>
-        <div class="label-con">
-          <h4>Search a username</h4>
-          <p>Enter any GitHub username in the search bar.</p>
+      <div class="grid space-x-8 min-[1024px]:grid-cols-2 gap-3 [&>div]:flex [&_.flow-num]:bg-[#b3d73b] [&_.flow-num]:py-3
+         [&_.flow-num]:text-white [&_.flow-num]:font-bold [&_.flow-num]:text-2xl [&>div]:gap-4 
+        [&>div]:align-middle [&_h4]:font-semibold [&_h4]:text-shadow-2xs [&_h4]:text-lg [&_p]:text-sm [&_p]:text-[#0e0e0e]
+         [&_.flow-num]:px-5 [&_.flow-num]:rounded-l-lg [&_.flow-num]:flex [&_h4]:text-[#0e0e0e]
+         [&_.flow-num]:align-middle [&_.flow-num]:justify-center [&_.flow-num]:shadow-xl 
+         [&_.flow-num]:cursor-pointer [&_.flow-num]:hover:scale-[1.05]
+         [&_.flow-num]:transition-all ease-in-out [&_p]:text-shadow-2xs">
+        <div>
+          <div class="flow-num">1</div>
+          <div class="label-con">
+            <h4>Search a username</h4>
+            <p>Enter any GitHub username in the search bar.</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="flow-num">2</div>
-        <div class="label-con">
-          <h4>View instant suggestions</h4>
-          <p>Live dropdown helps you find the right dev fast.</p>
+        <div>
+          <div class="flow-num">2</div>
+          <div class="label-con">
+            <h4>View instant suggestions</h4>
+            <p>Live dropdown helps you find the right dev fast.</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="flow-num">3</div>
-        <div class="label-con">
-          <h4>Explore Developer profile.</h4>
-          <p>See avatar, bio, location, followers, and more.</p>
+        <div>
+          <div class="flow-num">3</div>
+          <div class="label-con">
+            <h4>Explore Developer profile.</h4>
+            <p>See avatar, bio, location, followers, and more.</p>
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="flow-num">4</div>
-        <div class="label-con">
-          <h4>Check out their Repos</h4>
-          <p>Visit developer profile in one click.</p>
+        <div>
+          <div class="flow-num">4</div>
+          <div class="label-con">
+            <h4>Check out their Repos</h4>
+            <p>Visit developer profile in one click.</p>
+          </div>
         </div>
       </div>
     </section>
