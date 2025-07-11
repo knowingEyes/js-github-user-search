@@ -1,109 +1,105 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gitpeek</title>
-  </head>
 
-  <body class="font-sans">
-    <header class="px-2 py-4 fixed z-9999 w-full text-[#fff]">
-      <div class="flex flex-row align-middle justify-between">
-        <sapn>Gitpeek</sapn>
-        <nav class="text-sm max-[1024px]:hidden">
-          <ul class="flex [&>li]:block [&>li]:mr-5">
-            <li><a href="#About">About</a></li>
-            <li><a href="#Features">Features Highlights</a></li>
-            <li><a href="#How-it-works">How it Works?</a></li>
-            <li><a href="#Did-you-know">Did you Know?</a></li>
-          </ul>
-        </nav>
-        <button class="min-[1024px]:hidden">
-          <span class="material-icons text-[20px] cursor-pointer">menu</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gitpeek</title>
+</head>
+
+<body class="font-sans">
+  <header class="px-2 py-4 fixed z-9999 w-full text-[#fff]">
+    <div class="flex flex-row align-middle justify-between">
+      <sapn>Gitpeek</sapn>
+      <nav class="text-sm max-[1024px]:hidden">
+        <ul class="flex [&>li]:block [&>li]:mr-5">
+          <li><a href="#About">About</a></li>
+          <li><a href="#Features">Features Highlights</a></li>
+          <li><a href="#How-it-works">How it Works?</a></li>
+          <li><a href="#Did-you-know">Did you Know?</a></li>
+        </ul>
+      </nav>
+      <button class="min-[1024px]:hidden">
+        <span class="material-icons text-[20px] cursor-pointer">menu</span>
+      </button>
+    </div>
+  </header>
+  <main class="[&_h2]:xl:text-4xl [&_h2]:pt-10">
+    <!-- Hero -->
+    <section id="About" class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0">
+      <div
+        class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65">
+      </div>
+      <div
+        class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65">
+      </div>
+      <div class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center">
+        <h1 class="text-4xl min-md:text-5xl xl:text-7xl">
+          Discover GitHub Developers instantly
+        </h1>
+        <p class="my-4 text-[1rem] max-[1000px]:w-[300px] text-center mx-auto">
+          Search profiles, explore projects and track opensource activity all
+          in one place
+        </p>
+        <button class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC]">
+          Explore GitHub Developers
+          <span class="material-icons">arrow_outward</span>
         </button>
       </div>
-    </header>
-    <main class="[&_h2]:xl:text-4xl">
-      <!-- Hero -->
-      <section id="About"
-        class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0"
-      >
-        <div
-          class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65"
-        ></div>
-        <div
-          class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65"
-        ></div>
-        <div
-          class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center"
-        >
-          <h1 class="text-4xl min-md:text-5xl xl:text-7xl">
-            Discover GitHub Developers instantly
-          </h1>
-          <p
-            class="my-4 text-[1rem] max-[1000px]:w-[300px] text-center mx-auto"
-          >
-            Search profiles, explore projects and track opensource activity all
-            in one place
-          </p>
-          <button
-            class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC]"
-          >
-            Explore GitHub Developers
-            <span class="material-icons">arrow_outward</span>
-          </button>
+    </section>
+    <!-- Features highlights -->
+    <section class=" text-[#0e0e0e] px-2 bg-[#fafafa]" id="Features">
+      <h2>Features Highlights:</h2>
+      <div
+        class="[&>div]:p-6 grid min-[1024px]:grid-cols-2 gap-2 [&>div]:rounded-xl mt-5 [&>div]:backdrop-blur-3xl
+         [&>div]:bg-white [&>div]:ring-1 [&>div]:ring-gray-200 [&>div]:shadow-md [&_p]:text-gray-500
+          [&_.material-icons-outlined]:text-[#6843EC] [&_.material-icons-outlined]:min-[1024px]:text-3xl
+          [&_.material-icons-outlined]:text-2xl">
+        <div><span class="material-icons-outlined">search</span><p>Real time search.</p></div>
+        <div><span class="material-icons-outlined">person</span><p>Detailed Profiles.</p></div>
+        <div><span class="material-icons-outlined">folder_open</span><p>Repo Explorer.</p></div>
+        <div><span class="material-icons-outlined">bolt</span><p>Fast, Lightweight, Mobile Friendly</p></div>
+      </div>
+    </section>
+    <!-- How it works -->
+    <section id="How-it-works">
+      <h2 class="text-2xl">How it works?</h2>
+      <h3>
+        From search to discovery here's what happens when you use Gitpeek
+      </h3>
+      <div>
+        <div class="flow-num">1</div>
+        <div class="label-con">
+          <h4>Search a username</h4>
+          <p>Enter any GitHub username in the search bar.</p>
         </div>
-      </section>
-      <!-- Features highlights -->
-      <section class="h-screen" id="Features">
-        <h2 class=" pt-6">Features Highlights:</h2>
-        <div
-          class="[&>div]:p-8 grid min-[1024px]:grid-cols-2 gap-2 [&>div]:rounded-2xl mt-5 [&>div]:backdrop-blur-3xl"
-        >
-          <div>Real time search.</div>
-          <div>Detailed Profiles.</div>
-          <div>Repo Explorer.</div>
-          <div>Fast, Lightweight, Mobile Friendly</div>
+      </div>
+      <div>
+        <div class="flow-num">2</div>
+        <div class="label-con">
+          <h4>View instant suggestions</h4>
+          <p>Live dropdown helps you find the right dev fast.</p>
         </div>
-      </section>
-      <!-- How it works -->
-      <section id="How-it-works">
-        <h2 class="text-2xl">How it works?</h2>
-        <h3>
-          From search to discovery here's what happens when you use Gitpeek
-        </h3>
-        <div>
-          <div class="flow-num">1</div>
-          <div class="label-con">
-            <h4>Search a username</h4>
-            <p>Enter any GitHub username in the search bar.</p>
-          </div>
+      </div>
+      <div>
+        <div class="flow-num">3</div>
+        <div class="label-con">
+          <h4>Explore Developer profile.</h4>
+          <p>See avatar, bio, location, followers, and more.</p>
         </div>
-        <div>
-          <div class="flow-num">2</div>
-          <div class="label-con">
-            <h4>View instant suggestions</h4>
-            <p>Live dropdown helps you find the right dev fast.</p>
-          </div>
+      </div>
+      <div>
+        <div class="flow-num">4</div>
+        <div class="label-con">
+          <h4>Check out their Repos</h4>
+          <p>Visit developer profile in one click.</p>
         </div>
-        <div>
-          <div class="flow-num">3</div>
-          <div class="label-con">
-            <h4>Explore Developer profile.</h4>
-            <p>See avatar, bio, location, followers, and more.</p>
-          </div>
-        </div>
-        <div>
-          <div class="flow-num">4</div>
-          <div class="label-con">
-            <h4>Check out their Repos</h4>
-            <p>Visit developer profile in one click.</p>
-          </div>
-        </div>
-      </section>
-      <section id="Did-you-know"></section>
-    </main>
-    <footer></footer>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+      </div>
+    </section>
+    <section id="Did-you-know"></section>
+  </main>
+  <footer></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

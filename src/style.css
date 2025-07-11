@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "material-icons/iconfont/material-icons.css";
-.material-icons {
+.material-icons,.material-icons-outlined {
   font-size: revert-layer;
 }
 
