@@ -1,9 +1,4 @@
 import "./style.css";
-
-// const header = document.querySelector("header");
-
-// window.addEventListener("scroll", () => {
-//   window.scrollY > 10
-//     ? header.classList.add("show-bg")
-//     : header.classList.remove("show-bg");
-// });
+import "./helper.js";
+import "./event.js";
+import "./fetch_api.js";

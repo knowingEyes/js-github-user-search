@@ -4,10 +4,14 @@
 .material-icons,
 .material-icons-outlined {
   font-size: revert-layer;
+  display: revert-layer;
 }
 
 
-  .show-bg {
+.show-bg {
     @apply bg-[#0e0e0e]/80 backdrop-blur-sm;
   }
+.show-menu{
+  opacity: 1;
+}
 

@@ -3,17 +3,21 @@
 
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gitpeek</title>
 </head>
 
 <body class="[&_h2]:[font-family:'Sora'] [font-family:'Manrope']">
-  <header class="p-4 fixed z-9999 w-full text-[#fff] transition-[background-color] ease-out duration-500">
+  <header class="p-4 fixed z-9999 w-full text-[#fff] transition-[background-color] ease-out duration-200"
+    id="main-header">
     <div class="flex flex-row align-middle justify-between">
-      <div class="flex items-center justify-center"><span class="material-icons-outlined text-[21px]">hub</span> <span class="text-[1.4rem] [font-family:'Space Grotesk'] ml-1 tracking-wider">Gitpeek</span></div>
+      <div class="flex items-center justify-center"><span class="material-icons-outlined text-[21px]">hub</span> <span
+          class="text-[1.4rem] [font-family:'Space Grotesk'] ml-1 tracking-wider">Gitpeek</span></div>
       <nav class="text-sm max-[1024px]:hidden">
         <ul class="flex [&>li]:block [&>li]:mr-5">
           <li><a href="#About">About</a></li>
@@ -22,20 +26,23 @@
           <li><a href="#Did-you-know">Did you Know?</a></li>
         </ul>
       </nav>
-      <button class="min-[1024px]:hidden">
+      <button class="min-[1024px]:hidden menu-btn">
         <span class="material-icons text-[20px] cursor-pointer">menu</span>
+        <span class="material-icons text-[20px] cursor-pointer close-btn hidden">close</span>
       </button>
     </div>
   </header>
-  <div class="fixed top-16 w-full z-999 hidden">
-    <nav class="text-sm bg-[#0e0e0e]/80 backdrop-blur-sm  text-white">
-        <ul class="[&>li]:block [&>li]:mr-5 flex flex-col items-center  [&>li]:p-3 pb-4">
-          <li><a href="#About">About</a></li>
-          <li><a href="#Features">Features</a></li>
-          <li><a href="#How-it-works">How it Works?</a></li>
-          <li><a href="#Did-you-know">Did you Know?</a></li>
-        </ul>
-      </nav></div>
+  <div class="fixed top-16 w-full z-999 bg-[#0e0e0e]/80 backdrop-blur-sm drop-menu opacity-0 transition-opacity ease-in-out
+   duration-150 min-[1024px]:hidden " id="drop-down-menu">
+    <nav class="text-sm text-white h-full" id="dropdown-nav">
+      <ul class="[&>li]:block [&>li]:mr-5 flex flex-col items-center  [&>li]:p-3 pb-4">
+        <li><a href="#About" class="about">About</a></li>
+        <li><a href="#Features">Features</a></li>
+        <li><a href="#How-it-works">How it Works?</a></li>
+        <li><a href="#Did-you-know">Did you Know?</a></li>
+      </ul>
+    </nav>
+  </div>
   <main class="[&_h2]:xl:text-3xl [&_h2]:pt-10 [&_h2]:text-3xl">
     <!-- Hero -->
     <section id="About"
@@ -54,7 +61,7 @@
           Search profiles, explore projects and track opensource activity all
           in one place
         </p>
-        <button class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC]">
+        <button class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC] menu-btn">
           Explore GitHub Developers
           <span class="material-icons">arrow_outward</span>
         </button>
@@ -126,19 +133,35 @@
       </div>
     </section>
     <section id="Did-you-know" class="px-4 bg-[#0e0e0e] text-white">
-      <h2  class="text-center">Did you know?</h2>
+      <h2 class="text-center">Did you know?</h2>
       <div class="mt-5 pb-15 [&>div]:border-l-4 [&>div]:border-[#6843ec] [&>div]:p-2 [&>div]:mb-2 
         [&>div]:bg-[#1a1a1a] [&>div]:rounded-md [&>div]:min-[1024px]:w-[50%] [&>div]:mx-auto [&>div]:cursor-pointer
          [&>div]:w-100% [&>div]:hover:scale-[1.01] [&>div]:transition-transform ease-in-out">
-        <div><p>You dont need a GitHub Account to use GitPeek.</p></div>
-        <div><p>You can explore public profiles without logging in.</p></div>
-        <div><p>Your recent searches are stored locally, only you can see them.</p></div>
-        <div><p>GitPeek was built to work perfectly on mobile no compromise.</p></div>
+        <div>
+          <p>You dont need a GitHub Account to use GitPeek.</p>
+        </div>
+        <div>
+          <p>You can explore public profiles without logging in.</p>
+        </div>
+        <div>
+          <p>Your recent searches are stored locally, only you can see them.</p>
+        </div>
+        <div>
+          <p>GitPeek was built to work perfectly on mobile no compromise.</p>
+        </div>
       </div>
     </section>
   </main>
-  <footer class="border-none bg-[#0e0e0e] pt-5 pb-10 text-white text-center text-sm"><div>&copy; 2025 GitPeek. Crafted with <span class="material-icons">bolt</span>by ibrahim and Joshua.</div>
-  <div class="mt-3"><a href="#" class="hover:underline">Terms</a><a href="#" class="hover:underline ml-3">Privacy</a></div></footer>
+  <footer class="border-none bg-[#0e0e0e] pt-5 pb-10 text-white text-center text-sm">
+    <div>&copy; 2025 GitPeek. Crafted with <span class="material-icons">bolt</span>by ibrahim and Joshua.</div>
+    <div class="mt-3"><a href="#" class="hover:underline">Terms</a><a href="#" class="hover:underline ml-3">Privacy</a>
+    </div>
+  </footer>
+  <!-- search page -->
+  <!-- <section>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, tenetur earum odit pariatur repellendus,
+      officiis qui repudiandae nihil sunt sint omnis, quae cum eaque facere. Odit laborum ipsum molestiae quia.</p>
+  </section> -->
   <script type="module" src="/src/main.js"></script>
 </body>
 
