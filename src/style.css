@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @import "material-icons/iconfont/material-icons.css";
-.material-icons,.material-icons-outlined {
+
+.material-icons,
+.material-icons-outlined {
   font-size: revert-layer;
 }
 
-/* @theme {
-  --color-vibrantPurple: #6843ec;
-  --color-deepBlack: #0e0e0e;
-  --color-softGreen: #b3d73b;
-  --color-pureWhite: #ffffff;
-  --color-greyGray: #292929;
-} */
+
+  .show-bg {
+    @apply bg-[#0e0e0e]/80 backdrop-blur-sm;
+  }
+

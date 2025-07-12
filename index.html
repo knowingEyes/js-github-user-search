@@ -2,19 +2,22 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gitpeek</title>
 </head>
 
-<body class="font-sans">
-  <header class="px-2 py-4 fixed z-9999 w-full text-[#fff]">
+<body class="[&_h2]:[font-family:'Sora'] [font-family:'Manrope']">
+  <header class="p-4 fixed z-9999 w-full text-[#fff] transition-[background-color] ease-out duration-500">
     <div class="flex flex-row align-middle justify-between">
-      <sapn>Gitpeek</sapn>
+      <div class="flex items-center justify-center"><span class="material-icons-outlined text-[21px]">hub</span> <span class="text-[1.4rem] [font-family:'Space Grotesk'] ml-1 tracking-wider">Gitpeek</span></div>
       <nav class="text-sm max-[1024px]:hidden">
         <ul class="flex [&>li]:block [&>li]:mr-5">
           <li><a href="#About">About</a></li>
-          <li><a href="#Features">Features Highlights</a></li>
+          <li><a href="#Features">Features</a></li>
           <li><a href="#How-it-works">How it Works?</a></li>
           <li><a href="#Did-you-know">Did you Know?</a></li>
         </ul>
@@ -24,7 +27,16 @@
       </button>
     </div>
   </header>
-  <main class="[&_h2]:xl:text-4xl [&_h2]:pt-10">
+  <div class="fixed top-16 w-full z-999 hidden">
+    <nav class="text-sm bg-[#0e0e0e]/80 backdrop-blur-sm  text-white">
+        <ul class="[&>li]:block [&>li]:mr-5 flex flex-col items-center  [&>li]:p-3 pb-4">
+          <li><a href="#About">About</a></li>
+          <li><a href="#Features">Features</a></li>
+          <li><a href="#How-it-works">How it Works?</a></li>
+          <li><a href="#Did-you-know">Did you Know?</a></li>
+        </ul>
+      </nav></div>
+  <main class="[&_h2]:xl:text-3xl [&_h2]:pt-10 [&_h2]:text-3xl">
     <!-- Hero -->
     <section id="About"
       class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0 px-4">
@@ -35,10 +47,10 @@
         class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65">
       </div>
       <div class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center">
-        <h1 class="text-4xl min-md:text-5xl xl:text-7xl">
+        <h1 class="text-4xl min-md:text-5xl xl:text-7xl [font-family:'Sora']">
           Discover GitHub Developers instantly
         </h1>
-        <p class="my-4 text-[1rem] max-[1000px]:w-[300px] text-center mx-auto">
+        <p class="my-4 text-[1rem] max-[1000px]:w-[80%] text-center mx-auto">
           Search profiles, explore projects and track opensource activity all
           in one place
         </p>
@@ -72,17 +84,17 @@
     </section>
     <!-- How it works -->
     <section id="How-it-works" class="px-4 bg-[#f5ffd8] mt-20">
-      <h2 class="text-2xl">How it works?</h2>
-      <h3 class="text-[1rem] mb-3">
+      <h2>How it works?</h2>
+      <h3 class="text-[1.1rem] my-3 mb-7">
         From search to discovery here's what happens when you use Gitpeek
       </h3>
       <div class="pb-20 grid space-x-8 min-[1024px]:grid-cols-2 gap-3 [&>div]:flex [&_.flow-num]:bg-[#b3d73b] [&_.flow-num]:py-3
          [&_.flow-num]:text-white [&_.flow-num]:font-bold [&_.flow-num]:text-2xl [&>div]:gap-4 
-        [&>div]:align-middle [&_h4]:font-semibold [&_h4]:text-shadow-2xs [&_h4]:text-lg [&_p]:text-sm [&_p]:text-[#0e0e0e]
+        [&>div]:align-middle [&_h4]:[&_h2]:[font-family:'Sora']-semibold [&_h4]:text-shadow-2xs [&_h4]:text-lg [&_p]:text-sm [&_p]:text-[#0e0e0e]
          [&_.flow-num]:px-5 [&_.flow-num]:rounded-l-lg [&_.flow-num]:flex [&_h4]:text-[#0e0e0e]
          [&_.flow-num]:align-middle [&_.flow-num]:justify-center [&_.flow-num]:shadow-xl 
          [&_.flow-num]:cursor-pointer [&_.flow-num]:hover:scale-[1.05]
-         [&_.flow-num]:transition-all ease-in-out [&_p]:text-shadow-2xs">
+         [&_.flow-num]:transition-all ease-in-out [&_p]:text-shadow-2xs [&_.flow-num]:w-[50px]">
         <div>
           <div class="flow-num">1</div>
           <div class="label-con">
@@ -115,7 +127,7 @@
     </section>
     <section id="Did-you-know" class="px-4 bg-[#0e0e0e] text-white">
       <h2  class="text-center">Did you know?</h2>
-      <div class="mt-5 pb-20  [&>div]:border-l-4 [&>div]:border-[#6843ec] [&>div]:p-2 [&>div]:mb-2 
+      <div class="mt-5 pb-15 [&>div]:border-l-4 [&>div]:border-[#6843ec] [&>div]:p-2 [&>div]:mb-2 
         [&>div]:bg-[#1a1a1a] [&>div]:rounded-md [&>div]:min-[1024px]:w-[50%] [&>div]:mx-auto [&>div]:cursor-pointer
          [&>div]:w-100% [&>div]:hover:scale-[1.01] [&>div]:transition-transform ease-in-out">
         <div><p>You dont need a GitHub Account to use GitPeek.</p></div>
@@ -125,7 +137,8 @@
       </div>
     </section>
   </main>
-  <footer></footer>
+  <footer class="border-none bg-[#0e0e0e] pt-5 pb-10 text-white text-center text-sm"><div>&copy; 2025 GitPeek. Crafted with <span class="material-icons">bolt</span>by ibrahim and Joshua.</div>
+  <div class="mt-3"><a href="#" class="hover:underline">Terms</a><a href="#" class="hover:underline ml-3">Privacy</a></div></footer>
   <script type="module" src="/src/main.js"></script>
 </body>
 
