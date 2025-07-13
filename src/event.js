@@ -23,7 +23,7 @@ document.addEventListener("scroll", () => {
   rmDropDown();
 });
 
-menubtn.addEventListener("click", (e) => {
+menubtn.addEventListener("click", (e) => { 
   const btnIcons = [...menubtn.children];
   toggleIcon(btnIcons);
   if (!store.isMenuOpen) {
