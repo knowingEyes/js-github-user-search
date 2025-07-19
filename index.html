@@ -167,42 +167,43 @@
     </footer>
   </div>
   <!-- search page -->
-  <section class="h-screen overflow-hidden bg-[#0e0e0e] px-4 xl:px-40 absolute w-full top-0" id="search-page">
+  <section class="h-screen overflow-x-hidden bg-[#0e0e0e] px-4 xl:px-40 absolute w-full top-0" id="search-page">
     <header class="py-4 items-center bg-[#0e0e0e] text-white">
       <div class="w-full flex justify-between">
         <h1 class="font-semibold text-lg">Discover Developers</h1>
         <span class="material-icons-outlined text-2xl text-[#6843ec] cursor-pointer" id="search-btn">search</span>
       </div>
     </header>
-    <form action="" class="mt-5 transition-all ease-in-out">
+    <form action="" class="mt-5 transition-all ease-in-out relative w-full">
       <input type="search"
         class="text-white p-2 pl-5 rounded-xl w-full bg-white/5 outline-0 placeholder:text-gray-400 focus:ring-2 focus:ring-[#6843ec] ring-1"
         placeholder="Search" name="searchInput" />
-      <div class="text-amber-50 mt-4 bg-[#1e1e1e] rounded-xl p-4 hidden" id="search-suggestions">
+      <div class="text-amber-50 mt-4 bg-[#1e1e1e] rounded-xl p-4 hidden absolute z-10 w-full" id="search-suggestions">
         <h1 class="text-xl mb-1 font-bold">Top Results</h1>
         <p class="text-[0.9rem] mb-3">Who are you looking for?</p>
-        <div class=" flex items-center flex-col justify-center w-full text-gray-400 hidden" id="no-results">
+        <div class="flex items-center flex-col justify-center w-full text-gray-400 hidden" id="no-results">
           <span class="material-icons text-[1.5rem]">search_off</span>
           <p class="text-sm m-2.5">No user found</p>
         </div>
         <ul class="[&>li]:mb-2 [&>li]:cursor-pointer [&>li]:w-full" id="search-sugg-results"></ul>
       </div>
     </form>
-    <div>
+    <div class="text-white mt-5">
+      <h3 class="text-xl font-bold">Recent Profiles</h3>
+      <ul class="mt-4 [&>li]:pb-3" id="recent-profiles"></ul>
     </div>
-    <div class="text-center h-[90%] flex flex-col justify-center items-center">
-      <div>
-        <div class="">
-          <span class="material-icons-outlined text-amber-50 text-6xl opacity-40">person_search</span>
-          <p class="text-gray-400 text-sm mt-2">
-            Click the search icon above to search devlopers.
-          </p>
-        </div>
+    <div class="text-center absolute left-0 right-0 top-[50%]" id="empty-state">
+      <div class="">
+        <span class="material-icons-outlined text-amber-50 text-6xl opacity-40">person_search</span>
+        <p class="text-gray-400 text-sm mt-2 text-center">
+          Click the search icon above to search devlopers.<br />
+          Recent profile will show up here after your seearch.
+        </p>
       </div>
     </div>
     <!-- profile -->
     <div
-      class="text-amber-50 absolute min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden">
+      class="text-amber-50 fixed min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden z-50">
       <span class="material-icons absolute right-0 p-2 close">close</span>
       <div class="mt-15 px-6">
         <div class="grid grid-cols-2">
@@ -226,35 +227,35 @@
           </div>
         </div>
         <div
-          class="pb-8 grid grid-cols-2 [&>div]:h-20 gap-3 [&>div]:rounded-xl [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm">
+          class="pb-8 grid grid-cols-2 [&>div]:h-[auto] gap-3 [&>div]:rounded-xl [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm">
           <div>
             <span class="material-icons-outlined text-[#6843ec]">group</span>
-            <p>Followers</p>
+            <p class="font-bold">Followers</p>
             <p data-role="followers"></p>
           </div>
           <div>
             <span class="material-icons-outlined text-[#6843ec]">person_add</span>
-            <p>Following</p>
+            <p class="font-bold">Following</p>
             <p data-role="following"></p>
           </div>
           <div>
             <span class="material-icons-outlined text-[#b3d73b]">folder</span>
-            <p>Public Repos</p>
+            <p class="font-bold">Public Repos</p>
             <p data-role="public_repos"></p>
           </div>
           <div>
             <span class="material-icons-outlined text-[#b3d73b]">code</span>
-            <p>Gists</p>
+            <p class="font-bold">Gists</p>
             <p data-role="public_gists"></p>
           </div>
           <div>
             <span class="material-icons-outlined text-gray-400">place</span>
-            <p>Location</p>
+            <p class="font-bold">Location</p>
             <p data-role="location"></p>
           </div>
           <div>
             <span class="material-icons-outlined text-gray-400">work</span>
-            <p>Company</p>
+            <p class="font-bold">Company</p>
             <p data-role="company"></p>
           </div>
         </div>

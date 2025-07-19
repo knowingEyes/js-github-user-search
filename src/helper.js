@@ -4,6 +4,8 @@ import {
   header,
   searchSuggResults,
   store,
+  profileDetailsCon,
+  recentProfilesUl,
 } from "./event";
 import { getGithubUserDetails, searchGitHubusers } from "./fetch_api";
 
@@ -19,8 +21,15 @@ export {
   showsearchSugg,
   debounce,
   updateDebounce,
+  recentProfiles,
+  renderToUl,
+  showUserDetails,
+  checkEmptyList,
 };
 const updateDebounce = debounce(showsearchSugg);
+const recentProfiles = [
+  ...(JSON.parse(localStorage.getItem("gitHubUserName")) || []),
+];
 
 const toggleIcon = (icons) => {
   icons.forEach((icon) => icon.classList.toggle("hidden"));
@@ -53,37 +62,36 @@ const rmHeadBg = () => {
 const addHeadBg = () => {
   header.classList.add("show-bg");
 };
-const render = async (inputValue) => {
+const render = async (userName) => {
   const profile = document.querySelector(".avatar_url");
   const userLink = document.querySelector(".html_url");
   const coress = document.querySelectorAll("[data-role]");
-  const user = await getGithubUserDetails(`${inputValue}`);
+  const user = await getGithubUserDetails(`${userName}`);
   userLink.href = user.html_url;
   profile.src = user.avatar_url;
   coress.forEach((data) => {
     data.innerHTML = "";
-    data.innerHTML = user[`${data.dataset.role || "N/A"}`];
+    data.innerHTML = user[`${data.dataset.role}`];
   });
+  if (!recentProfiles.includes(userName)) {
+    recentProfiles.push(userName);
+    localStorage.setItem("gitHubUserName", JSON.stringify(recentProfiles));
+  }
 };
 
 async function showsearchSugg(inputValue) {
   const { items } = await searchGitHubusers(inputValue);
   const noResult = document.getElementById("no-results");
-  console.log(items)
   if (items.length === 0) {
     noResult.classList.remove("hidden");
     return;
   }
-  items.forEach(async ({ login, avatar_url }) => {
-    const searchSuggLists = document.createElement("li");
-    const { name } = await getGithubUserDetails(`${login}`);
-    searchSuggLists.innerHTML = `<div class=" flex items-center space-x-2 "><div class="w-8 h-8 rounded-full overflow-hidden"><img src="${avatar_url}"></img></div> <div class="font-extrabold text-[13px] "><p>${name}</p><p class="text-[10px] text-[#a1a1a1] user-name">@${login}</p></div></div>`;
-    noResult.classList.add("hidden");
-    searchSuggResults.append(searchSuggLists);
-  });
+  noResult.classList.add("hidden");
+  const users = items.map(({ login }) => login);
+  renderToUl(users, searchSuggResults);
 }
 
-function debounce(myFunc, delay = 300) {
+function debounce(myFunc, delay = 500) {
   let timer;
   return function (...args) {
     clearTimeout(timer);
@@ -91,4 +99,32 @@ function debounce(myFunc, delay = 300) {
       myFunc.apply(this, args);
     }, delay);
   };
+}
+
+function renderToUl(users, appendTo) {
+  return users.forEach(async (user) => {
+    const searchSuggLists = document.createElement("li");
+    const { name, avatar_url, login } = await getGithubUserDetails(`${user}`);
+    searchSuggLists.innerHTML = `<div class=" flex items-center space-x-2 "><div class="w-8 h-8 rounded-full overflow-hidden"><img src="${avatar_url}"></img></div> <div class="font-extrabold text-[13px] "><p>${
+      name || "n/a"
+    }</p><p class="text-[10px] text-[#a1a1a1] user-name">@${login}</p></div></div>`;
+    appendTo.append(searchSuggLists);
+  });
+}
+
+function showUserDetails(e) {
+  const userList = e.target.closest("li");
+  if (userList) {
+    const userName = e.target.closest("div").querySelector(".user-name");
+    render(userName.textContent.slice(1));
+    profileDetailsCon.classList.remove("hidden");
+    const avatar_url = e.target.closest("div").querySelector("img");
+  }
+}
+
+function checkEmptyList() {
+  const emptyState = document.getElementById("empty-state");
+  if (recentProfilesUl.children.length !== 0)
+    emptyState.classList.remove("hidden");
+  else emptyState.classList.add("hidden");
 }

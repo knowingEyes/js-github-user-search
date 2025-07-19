@@ -1,10 +1,14 @@
 import {
   addHeadBg,
+  checkEmptyList,
   closeMenuRmHeadBg,
   openMenuAddHeadBg,
+  recentProfiles,
   render,
+  renderToUl,
   rmDropDown,
   rmHeadBg,
+  showUserDetails,
   toggleIcon,
   updateDebounce,
 } from "./helper";
@@ -22,6 +26,7 @@ const listitem = document.querySelector("#search-sugg-results li");
 const searchPage = document.getElementById("search-page");
 const profileDetailsCon = document.querySelector(".profile-details");
 const explore = document.querySelector(".explore-btn");
+const recentProfilesUl = document.getElementById("recent-profiles");
 // let controller;
 // let signal;
 
@@ -34,6 +39,7 @@ export {
   searchSuggResults,
   searchInput,
   profileDetailsCon,
+  recentProfilesUl,
   // signal,
 };
 
@@ -70,8 +76,6 @@ searchBtn.addEventListener("click", () => {
 });
 
 searchInput.addEventListener("input", (e) => {
-  // controller = new AbortController();
-
   if (e.target.value !== "") {
     searchSuggCon.classList.remove("hidden");
     searchSuggResults.innerHTML = "";
@@ -79,19 +83,18 @@ searchInput.addEventListener("input", (e) => {
   } else searchSuggCon.classList.add("hidden");
 });
 
-searchSuggResults.addEventListener("click", (e) => {
-  const userList = e.target.closest("li");
-  if (userList) {
-    const userName = e.target.closest("div").querySelector(".user-name");
-    render(userName.textContent.slice(1));
-    profileDetailsCon.classList.remove("hidden");
-    const avatar_url = e.target.closest("div").querySelector("img");
-  }
-});
+searchSuggResults.addEventListener("click", showUserDetails);
+recentProfilesUl.addEventListener("click", showUserDetails);
 
 profileDetailsCon.addEventListener("click", (e) => {
   if (e.target.matches(".close")) {
+    renderToUl(recentProfiles, recentProfilesUl);
     profileDetailsCon.classList.add("hidden");
+    searchSuggCon.classList.add("hidden");
+    searchInput.value = "";
+    recentProfilesUl.innerHTML = ""
+    checkEmptyList()
+    
   }
 });
 explore.addEventListener("click", () => {
