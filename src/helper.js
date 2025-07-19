@@ -1,6 +1,11 @@
-import { data } from "autoprefixer";
-import { btnIcons, dropDownMenu, header, store } from "./event";
-import { getGithubUserDetails } from "./fetch_api";
+import {
+  btnIcons,
+  dropDownMenu,
+  header,
+  searchSuggResults,
+  store,
+} from "./event";
+import { getGithubUserDetails, searchGitHubusers } from "./fetch_api";
 
 export {
   toggleIcon,
@@ -10,7 +15,12 @@ export {
   rmDropDown,
   addHeadBg,
   rmHeadBg,
+  render,
+  showsearchSugg,
+  debounce,
+  updateDebounce,
 };
+const updateDebounce = debounce(showsearchSugg);
 
 const toggleIcon = (icons) => {
   icons.forEach((icon) => icon.classList.toggle("hidden"));
@@ -43,73 +53,42 @@ const rmHeadBg = () => {
 const addHeadBg = () => {
   header.classList.add("show-bg");
 };
-const render = async () => {
-  const {
-    followers, following, id,
-    company, public_gists, public_repos,
-    created_at, avatar_url, name,
-    bio, login, location, html_url
-  } = await getGithubUserDetails("knowingeyes");
-  document.body.innerHTML = `<div
-      class="text-amber-50 absolute w-[90%] top-10 h-[90%] bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20">
-      <span class="material-icons absolute right-0 p-2">close</span>
-      <div class="mt-15 px-3">
-        <div class="grid grid-cols-2 ">
-          <div class="bg-blue-300 rounded-l-xl overflow-hidden "><img src="${avatar_url}" alt="" class="w-full h-full object-cover"></div>
-          <div class="bg-[#0e0e0e] py-6 px-3 rounded-r-xl [&_P]:mb-1">
-            <h1 class="text-2xl font-semibold">${name}</h1>
-            <p class="text-sm text-[#a694ff]">@${login}</p>
-            <p class="text-xs text-gray-500 mt-1">#${id}</p>
-            <p class="text-[0.8rem] text-gray-400">bio: ${bio || "N/A"}</p>
-            <button class="text-[.8rem] bg-[#6843ec] rounded-xl py-[3px] px-3.5 mt-3">
-              <a href="${html_url}" target="_blank">Visit User Profile
-            </button>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 [&>div]:h-20 gap-3 [&>div]:rounded-xl [&>div]:bg-[#0e0e0e]/90
-          [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 
-          [&_span]:text-xl [&_p]:text-sm">
-          <div>
-            <span class="material-icons-outlined text-[#6843ec]">group</span>
-            <p>Followers</p>
-            <p>${followers}</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-[#6843ec]">person_add</span>
-            <p>Following</p>
-            <p>${following}</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-[#b3d73b]">folder</span>
-            <p>Public Repos</p>
-            <p>${public_repos}</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-[#b3d73b]">code</span>
-            <p>Gists</p>
-            <p>${public_gists}</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-gray-400">place</span>
-            <p>Location</p>
-            <p>${location || "N/A"}</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-gray-400">work</span>
-            <p>Company</p>
-            <p>${company || "N/A"}</p>
-          </div>
-        </div>
-      </div>
-    </div>`;
+const render = async (inputValue) => {
+  const profile = document.querySelector(".avatar_url");
+  const userLink = document.querySelector(".html_url");
+  const coress = document.querySelectorAll("[data-role]");
+  const user = await getGithubUserDetails(`${inputValue}`);
+  userLink.href = user.html_url;
+  profile.src = user.avatar_url;
+  coress.forEach((data) => {
+    data.innerHTML = "";
+    data.innerHTML = user[`${data.dataset.role || "N/A"}`];
+  });
 };
 
+async function showsearchSugg(inputValue) {
+  const { items } = await searchGitHubusers(inputValue);
+  const noResult = document.getElementById("no-results");
+  console.log(items)
+  if (items.length === 0) {
+    noResult.classList.remove("hidden");
+    return;
+  }
+  items.forEach(async ({ login, avatar_url }) => {
+    const searchSuggLists = document.createElement("li");
+    const { name } = await getGithubUserDetails(`${login}`);
+    searchSuggLists.innerHTML = `<div class=" flex items-center space-x-2 "><div class="w-8 h-8 rounded-full overflow-hidden"><img src="${avatar_url}"></img></div> <div class="font-extrabold text-[13px] "><p>${name}</p><p class="text-[10px] text-[#a1a1a1] user-name">@${login}</p></div></div>`;
+    noResult.classList.add("hidden");
+    searchSuggResults.append(searchSuggLists);
+  });
+}
 
-
-
-
-
-
-
-
-
+function debounce(myFunc, delay = 300) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      myFunc.apply(this, args);
+    }, delay);
+  };
+}
