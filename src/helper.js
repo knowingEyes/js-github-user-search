@@ -73,9 +73,6 @@ const render = async (userName) => {
   coress.forEach((data) => {
     data.innerHTML = "";
     data.innerHTML = user[data.dataset.role]
-      // data.dataset.role === "folllowing"
-        // ? user[data.dataset.role]
-        // : user[data.dataset.role] || "n/a";
   });
   if (!recentProfiles.includes(userName)) {
     recentProfiles.push(userName);
@@ -84,7 +81,9 @@ const render = async (userName) => {
 };
 
 async function showsearchSugg(inputValue) {
-  const { items } = await searchGitHubusers(inputValue);
+  const { items } = [1,2]
+  // await searchGitHubusers(inputValue);
+  
   const noResult = document.getElementById("no-results");
   if (items.length === 0) {
     noResult.classList.remove("hidden");
