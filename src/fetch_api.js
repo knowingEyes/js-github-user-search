@@ -1,5 +1,6 @@
 // import { signal } from "./event";
 // // let controller;
+import {showFakeErrorLoading} from "./helper"
 const fetchFromApi = async (url) => {
   const res = await fetch(url, {
     // signal,

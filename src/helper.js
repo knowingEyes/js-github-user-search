@@ -25,6 +25,7 @@ export {
   renderToUl,
   showUserDetails,
   checkEmptyList,
+  showFakeErrorLoading,
 };
 const updateDebounce = debounce(showsearchSugg);
 const recentProfiles = [
@@ -132,3 +133,12 @@ function checkEmptyList() {
     emptyState.classList.remove("hidden");
   else emptyState.classList.add("hidden");
 }
+
+const showFakeErrorLoading = (error) => {
+  const fakeLoader = document.getElementById("fake-loader");
+  if (error.message === "Failed to fetch") {
+    fakeLoader.classList.remove("hidden");
+  } else {
+    fakeLoader.classList.add("hidden");
+  }
+};
