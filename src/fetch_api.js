@@ -1,35 +1,29 @@
 // import { signal } from "./event";
 // // let controller;
-import {showFakeErrorLoading} from "./helper"
-const fetchFromApi = async (url) => {
-  const res = await fetch(url, {
-    // signal,
-  });
+
+import { showFakeErrorLoading } from "./helper";
+const fetchFromApi = async (query = "drake", type = "search") => {
+  const res = await fetch(`/api/github?q=${query}&type=${type}`);
   if (!res.ok) throw new Error("Fetch failed", res.status);
   return res.json();
 };
 
 export const getGithubUserDetails = async (inputValue) => {
   try {
-    const userData = await fetchFromApi(
-      `https://api.github.com/users/${inputValue}`
-    );
+    const userData = await fetchFromApi(inputValue, "user");
     return userData;
   } catch (error) {
-    showFakeErrorLoading(error);
+    // showFakeErrorLoading(error);
   }
 };
 
 export const searchGitHubusers = async (inputValue) => {
-  // if (controller) controller.abort();
-  // controller = new AbortController();
-  // const { signal } = controller;
   try {
-    const userData = await fetchFromApi(
-      `https://api.github.com/search/users?q=${inputValue}+in:login&per_page=10`
-    );
+    const userData = await fetchFromApi(inputValue, "search");
     return userData;
   } catch (error) {
-    showFakeErrorLoading(error);
+    // showFakeErrorLoading(error);
   }
 };
+
+console.log(await searchGitHubusers("drake"))
