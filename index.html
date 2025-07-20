@@ -185,12 +185,12 @@
           <span class="material-icons text-[1.5rem]">search_off</span>
           <p class="text-sm m-2.5">No user found</p>
         </div>
-        <ul class="[&>li]:mb-2 [&>li]:cursor-pointer [&>li]:w-full" id="search-sugg-results"></ul>
+        <ul class="[&>li]:mb-2 [&>li]:cursor-pointer [&>li]:w-full [&>li]:hover:" id="search-sugg-results"></ul>
       </div>
     </form>
     <div class="text-white mt-5">
       <h3 class="text-xl font-bold">Recent Profiles</h3>
-      <ul class="mt-4 [&>li]:pb-3" id="recent-profiles"></ul>
+      <ul class="mt-4 [&>li]:pb-3 [&>li]:cursor-pointer [&>li]:hover:" id="recent-profiles"></ul>
     </div>
     <div class="text-center absolute left-0 right-0 top-[50%]" id="empty-state">
       <div class="">
@@ -203,31 +203,30 @@
     </div>
     <!-- profile -->
     <div
-      class="text-amber-50 fixed min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden z-50">
-      <span class="material-icons absolute right-0 p-2 close">close</span>
+      class="text-amber-50 absolute min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden z-50">
+      <span class="material-icons absolute right-0 p-2 close cursor-pointer">close</span>
       <div class="mt-15 px-6">
         <div class="grid grid-cols-2">
-          <div class="bg-blue-300 rounded-l-xl overflow-hidden">
+          <div class=" rounded-l-xl overflow-hidden">
             <img src="" alt="" class="w-full h-full object-cover avatar_url" />
           </div>
-          <div class="bg-[#0e0e0e] py-6 px-4 rounded-r-xl [&_P]:mb-1">
-            <h1 class="text-2xl font-semibold" data-role="name"></h1>
-            <p class="text-sm text-[#a694ff]">
-              @<span data-role="login"></span>
-            </p>
-            <p class="text-xs text-gray-500 mt-1">
+          <div class="bg-[#0e0e0e] py-6 px-4 rounded-r-xl [&_P]:mb-1 flex flex-col justify-center">
+            <h1 class="text-2xl font-semibold line-clamp-3" data-role="name"></h1>
+            <p class="text-sm text-[#a694ff] line-clamp-3">@<span data-role="login"></span></p>
+            <p class="text-xs text-gray-500">
               #<span data-role="id"></span>
             </p>
-            <p class="text-[0.8rem] text-gray-400">
+            <p class="text-[0.8rem] text-gray-400 line-clamp-3">
               bio: <span data-role="bio"></span>
             </p>
-            <button class="text-[.8rem] bg-[#6843ec] rounded-xl py-[3px] px-3.5 mt-3">
+            <button class="text-[.8rem] min-[300px]:text-[.7rem] bg-[#6843ec] rounded-xl py-[3px] px-3.5 mt-3 hover:scale-[0.97] transition-all ease-in-out hover:bg-[#6843ec]">
               <a href="" target="_blank" class="html_url">Visit User Profile</a>
             </button>
           </div>
         </div>
         <div
-          class="pb-8 grid grid-cols-2 [&>div]:h-[auto] gap-3 [&>div]:rounded-xl [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm">
+          class="pb-8 grid grid-cols-2 [&>div]:h-[auto] [&>div]:hover:scale-[1.035] [&>div]:transition [&>div]:ease-in-out [&>div]:duration-200 [&>div]:hover:ring-1 [&>div]:hover:ring-[#6843ec]/50 gap-3 [&>div]:rounded-xl
+           [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm">
           <div>
             <span class="material-icons-outlined text-[#6843ec]">group</span>
             <p class="font-bold">Followers</p>
@@ -259,6 +258,12 @@
             <p data-role="company"></p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="bg-[#0e0e0e] fixed h-full w-full top-0 left-0 z-100 hidden" id="fake-loader">
+      <div class="border-5 border-[#6843ec] w-[40px] h-[40px] rounded-full shadow-white absolute top-[50%] left-[50%] translate-x-[-50%] border-t-transparent animate-spin">
+        <!-- <div class="bg-[#0e0e0e] w-[30px] h-[30px] rounded-full left-[-15px] absolute"></div> -->
+         <svg></svg>
       </div>
     </div>
   </section>

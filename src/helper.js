@@ -71,7 +71,10 @@ const render = async (userName) => {
   profile.src = user.avatar_url;
   coress.forEach((data) => {
     data.innerHTML = "";
-    data.innerHTML = user[`${data.dataset.role}`];
+    data.innerHTML = user[data.dataset.role]
+      // data.dataset.role === "folllowing"
+        // ? user[data.dataset.role]
+        // : user[data.dataset.role] || "n/a";
   });
   if (!recentProfiles.includes(userName)) {
     recentProfiles.push(userName);
@@ -102,13 +105,14 @@ function debounce(myFunc, delay = 500) {
 }
 
 function renderToUl(users, appendTo) {
-  return users.forEach(async (user) => {
+   users.forEach(async (user) => {
     const searchSuggLists = document.createElement("li");
     const { name, avatar_url, login } = await getGithubUserDetails(`${user}`);
     searchSuggLists.innerHTML = `<div class=" flex items-center space-x-2 "><div class="w-8 h-8 rounded-full overflow-hidden"><img src="${avatar_url}"></img></div> <div class="font-extrabold text-[13px] "><p>${
-      name || "n/a"
+      name
     }</p><p class="text-[10px] text-[#a1a1a1] user-name">@${login}</p></div></div>`;
-    appendTo.append(searchSuggLists);
+   return appendTo.append(searchSuggLists);
+    
   });
 }
 
