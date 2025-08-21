@@ -4,14 +4,13 @@ import {
   closeMenuRmHeadBg,
   openMenuAddHeadBg,
   recentProfiles,
-  render,
-  renderToUl,
   rmDropDown,
   rmHeadBg,
   showUserDetails,
   toggleIcon,
   updateDebounce,
 } from "./helper";
+import searchAndShowsearchSugg from "./searchSugg";
 
 const menubtn = document.querySelector(".menu-btn");
 const header = document.getElementById("main-header");
@@ -27,8 +26,6 @@ const searchPage = document.getElementById("search-page");
 const profileDetailsCon = document.querySelector(".profile-details");
 const explore = document.querySelector(".explore-btn");
 const recentProfilesUl = document.getElementById("recent-profiles");
-// let controller;
-// let signal;
 
 const store = { isMenuOpen: false };
 export {
@@ -40,7 +37,6 @@ export {
   searchInput,
   profileDetailsCon,
   recentProfilesUl,
-  // signal,
 };
 
 window.addEventListener("scroll", () => {
@@ -76,10 +72,10 @@ searchBtn.addEventListener("click", () => {
 });
 
 searchInput.addEventListener("input", (e) => {
-  if (e.target.value !== "") {
+  if (e.target.value !== "" ) {
     searchSuggCon.classList.remove("hidden");
     searchSuggResults.innerHTML = "";
-    updateDebounce(e.target.value.trim());
+    updateDebounce(e.target.value.toLowerCase());
   } else searchSuggCon.classList.add("hidden");
 });
 

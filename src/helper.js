@@ -7,7 +7,8 @@ import {
   profileDetailsCon,
   recentProfilesUl,
 } from "./event";
-import { getGithubUserDetails, searchGitHubusers } from "./fetch_api";
+import { fetchFromApi } from "./fetch_api";
+import searchForUsers from "./searchSugg";
 
 export {
   toggleIcon,
@@ -18,16 +19,14 @@ export {
   addHeadBg,
   rmHeadBg,
   render,
-  showsearchSugg,
   debounce,
   updateDebounce,
   recentProfiles,
-  renderToUl,
   showUserDetails,
   checkEmptyList,
-  showFakeErrorLoading,
 };
-const updateDebounce = debounce(showsearchSugg);
+const updateDebounce = debounce(searchForUsers);
+
 const recentProfiles = [
   ...(JSON.parse(localStorage.getItem("gitHubUserName")) || []),
 ];
@@ -67,12 +66,12 @@ const render = async (userName) => {
   const profile = document.querySelector(".avatar_url");
   const userLink = document.querySelector(".html_url");
   const coress = document.querySelectorAll("[data-role]");
-  const user = await getGithubUserDetails(`${userName}`);
+  const user = await fetchFromApi(userName, "user");
   userLink.href = user.html_url;
   profile.src = user.avatar_url;
   coress.forEach((data) => {
     data.innerHTML = "";
-    data.innerHTML = user[data.dataset.role]
+    data.innerHTML = user[data.dataset.role];
   });
   if (!recentProfiles.includes(userName)) {
     recentProfiles.push(userName);
@@ -80,21 +79,7 @@ const render = async (userName) => {
   }
 };
 
-async function showsearchSugg(inputValue) {
-  const { items } = [1,2]
-  // await searchGitHubusers(inputValue);
-  
-  const noResult = document.getElementById("no-results");
-  if (items.length === 0) {
-    noResult.classList.remove("hidden");
-    return;
-  }
-  noResult.classList.add("hidden");
-  const users = items.map(({ login }) => login);
-  renderToUl(users, searchSuggResults);
-}
-
-function debounce(myFunc, delay = 500) {
+function debounce(myFunc, delay = 100) {
   let timer;
   return function (...args) {
     clearTimeout(timer);
@@ -104,17 +89,7 @@ function debounce(myFunc, delay = 500) {
   };
 }
 
-function renderToUl(users, appendTo) {
-   users.forEach(async (user) => {
-    const searchSuggLists = document.createElement("li");
-    const { name, avatar_url, login } = await getGithubUserDetails(`${user}`);
-    searchSuggLists.innerHTML = `<div class=" flex items-center space-x-2 "><div class="w-8 h-8 rounded-full overflow-hidden"><img src="${avatar_url}"></img></div> <div class="font-extrabold text-[13px] "><p>${
-      name
-    }</p><p class="text-[10px] text-[#a1a1a1] user-name">@${login}</p></div></div>`;
-   return appendTo.append(searchSuggLists);
-    
-  });
-}
+
 
 function showUserDetails(e) {
   const userList = e.target.closest("li");
@@ -133,11 +108,4 @@ function checkEmptyList() {
   else emptyState.classList.add("hidden");
 }
 
-const showFakeErrorLoading = (error) => {
-  const fakeLoader = document.getElementById("fake-loader");
-  if (error.message === "Failed to fetch") {
-    fakeLoader.classList.remove("hidden");
-  } else {
-    fakeLoader.classList.add("hidden");
-  }
-};
+

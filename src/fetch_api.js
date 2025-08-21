@@ -1,29 +1,30 @@
-// import { signal } from "./event";
-// // let controller;
-
-import { showFakeErrorLoading } from "./helper";
-const fetchFromApi = async (query = "drake", type = "search") => {
-  const res = await fetch(`/api/github?q=${query}&type=${type}`);
-  if (!res.ok) throw new Error("Fetch failed", res.status);
-  return res.json();
-};
-
-export const getGithubUserDetails = async (inputValue) => {
-  try {
-    const userData = await fetchFromApi(inputValue, "user");
-    return userData;
-  } catch (error) {
-    // showFakeErrorLoading(error);
+const token = import.meta.env.VITE_GITHUB_TOKEN;
+const baseUrl = "https://api.github.com/";
+let controller;
+import { showFakeErrorLoading } from "./loader";
+export async function fetchFromApi(query, type) {
+  if (!type) throw new Error("invalid type");
+  let endpoint;
+  if (type === "search") {
+    endpoint = `${baseUrl}${type}/users?q=${query}`;
+  } else if (type === "user") {
+    endpoint = `${baseUrl}users/${query}`;
   }
-};
-
-export const searchGitHubusers = async (inputValue) => {
-  try {
-    const userData = await fetchFromApi(inputValue, "search");
-    return userData;
-  } catch (error) {
-    // showFakeErrorLoading(error);
+  if (endpoint.includes("/search")) {
+    if (controller) controller.abort();
+    controller = new AbortController();
   }
-};
-
-console.log(await searchGitHubusers("drake"))
+  try {
+    const res = await fetch(endpoint, {
+      headers: { Authorization: `token ${token}` },
+      signal: controller.signal,
+    });
+    if (!res.ok) throw new Error("Fetch failed", res);
+    const data = res.json();
+    return data;
+  } catch (error) {
+    if (error.name === "AbortError") return;
+    // showFakeErrorLoading(error.name)
+    return error;
+  }
+}
