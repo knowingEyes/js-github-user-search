@@ -26,6 +26,8 @@ const profileDetailsCon = document.querySelector(".profile-details");
 const explore = document.querySelector(".explore-btn");
 const recentProfilesUl = document.getElementById("recent-profiles");
 const scrollDown = document.querySelector(".scroll-down");
+  const profile = document.querySelector(".avatar_url");
+  const userLink = document.querySelector(".html_url");
 
 const store = {
   isMenuOpen: false,
@@ -39,6 +41,8 @@ export {
   searchInput,
   profileDetailsCon,
   recentProfilesUl,
+  profile,
+  userLink
 };
 
 window.addEventListener("scroll", () => {
@@ -85,9 +89,14 @@ searchInput.addEventListener("input", (e) => {
 profileDetailsCon.addEventListener("click", (e) => {
   if (e.target.matches(".close")) {
     FetchAndRenderRecentProfiles();
-    profileDetailsCon.classList.add("hidden");
+    profileDetailsCon.classList.add(
+      "opacity-0",
+      "pointer-events-none",
+      "invisible"
+    );
     searchSuggCon.classList.add("hidden");
     searchInput.value = "";
+    profile.src = ""
     recentProfilesUl.innerHTML = "";
     checkEmptyList();
   }

@@ -15,19 +15,18 @@ export async function fetchFromApi(query, type) {
     if (controller) controller.abort();
     controller = new AbortController();
   }
- 
+
   try {
     const res = await fetch(endpoint, {
-      headers: { Authorization: `token ${token}` }, signal : controller && controller.signal
-
+      headers: { Authorization: `token ${token}` },
+      signal: controller && controller.signal,
     });
     if (!res.ok) throw new Error("Fetch failed", res.status);
     const data = res.json();
     return data;
   } catch (error) {
     if (error.name === "AbortError") return;
-    showFakeErrorLoading(error.name)
+    showFakeErrorLoading(error.name);
     return error;
   }
 }
-
