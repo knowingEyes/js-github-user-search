@@ -15,17 +15,17 @@ const menubtn = document.querySelector(".menu-btn");
 const header = document.getElementById("main-header");
 const dropDownMenu = document.getElementById("drop-down-menu");
 const btnIcons = document.querySelectorAll(".menu-btn span");
-const formInput = document.querySelector("form");
-const searchInput = formInput.elements.searchInput;
-const searchBtn = document.getElementById("search-btn");
+const searchInput = document.querySelector(".searchInput");
 const searchSuggCon = document.getElementById("search-suggestions");
 const searchSuggResults = document.querySelector("#search-sugg-results");
-const listitem = document.querySelector("#search-sugg-results li");
-const searchPage = document.getElementById("search-page");
+// const listitem = document.querySelector("#search-sugg-results li");
+// const searchPage = document.getElementById("search-page");
 const profileDetailsCon = document.querySelector(".profile-details");
 const explore = document.querySelector(".explore-btn");
 const recentProfilesUl = document.getElementById("recent-profiles");
 const scrollDown = document.querySelector(".scroll-down");
+const profile = document.querySelector(".avatar_url");
+const userLink = document.querySelector(".html_url");
 
 const store = {
   isMenuOpen: false,
@@ -39,6 +39,8 @@ export {
   searchInput,
   profileDetailsCon,
   recentProfilesUl,
+  profile,
+  userLink,
 };
 
 window.addEventListener("scroll", () => {
@@ -85,9 +87,14 @@ searchInput.addEventListener("input", (e) => {
 profileDetailsCon.addEventListener("click", (e) => {
   if (e.target.matches(".close")) {
     FetchAndRenderRecentProfiles();
-    profileDetailsCon.classList.add("hidden");
+    profileDetailsCon.classList.add(
+      "opacity-0",
+      "pointer-events-none",
+      "invisible"
+    );
     searchSuggCon.classList.add("hidden");
     searchInput.value = "";
+    profile.src = "";
     recentProfilesUl.innerHTML = "";
     checkEmptyList();
   }

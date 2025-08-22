@@ -2,7 +2,7 @@ import "./style.css";
 import "./event.js";
 import "./fetch_api.js";
 import "./searchSugg.js";
-import { AOS } from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import { checkEmptyList } from "./helper.js";
 import { FetchAndRenderRecentProfiles } from "./recentProfiles.js";
@@ -13,12 +13,14 @@ import { FetchAndRenderRecentProfiles } from "./recentProfiles.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   FetchAndRenderRecentProfiles();
-  // AOS.init({
-  //   duration: 800,
-  //   once: false,
-  // });
+  AOS.init({
+    duration: 800,
+    once: true,
+    easing: "ease-out-cubic",
+    offset: 50,
+  });
   // renderToUl(recentProfiles, recentProfilesUl);
-  checkEmptyList()
+  checkEmptyList();
 });
 
 // AOS.refresh()

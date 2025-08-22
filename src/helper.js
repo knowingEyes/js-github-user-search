@@ -5,6 +5,8 @@ import {
   store,
   profileDetailsCon,
   recentProfilesUl,
+  userLink,
+  profile,
 } from "./event";
 import { fetchFromApi } from "./fetch_api";
 import { recentProfiles } from "./recentProfiles";
@@ -70,11 +72,9 @@ function debounce(myFunc, delay = 100) {
 
 async function showUserDetailsProfileCard(e) {
   const userList = e.target.closest("li");
-  const profile = document.querySelector(".avatar_url");
-  const userLink = document.querySelector(".html_url");
   const coress = document.querySelectorAll("[data-role]");
   if (userList) {
-    profileDetailsCon.classList.remove("hidden");
+    profileDetailsCon.classList.remove("opacity-0", "pointer-events-none", "invisible");
     const userName = e.target
       .closest("div")
       .querySelector(".user-name")
