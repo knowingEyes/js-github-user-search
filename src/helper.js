@@ -2,12 +2,13 @@ import {
   btnIcons,
   dropDownMenu,
   header,
-  searchSuggResults,
   store,
   profileDetailsCon,
   recentProfilesUl,
 } from "./event";
 import { fetchFromApi } from "./fetch_api";
+import { recentProfiles } from "./recentProfiles";
+import saveToLocalStorage from "./saveToLocalStorage";
 import searchForUsers from "./searchSugg";
 
 export {
@@ -18,18 +19,12 @@ export {
   rmDropDown,
   addHeadBg,
   rmHeadBg,
-  render,
   debounce,
   updateDebounce,
-  recentProfiles,
-  showUserDetails,
+  showUserDetailsProfileCard,
   checkEmptyList,
 };
 const updateDebounce = debounce(searchForUsers);
-
-const recentProfiles = [
-  ...(JSON.parse(localStorage.getItem("gitHubUserName")) || []),
-];
 
 const toggleIcon = (icons) => {
   icons.forEach((icon) => icon.classList.toggle("hidden"));
@@ -62,22 +57,6 @@ const rmHeadBg = () => {
 const addHeadBg = () => {
   header.classList.add("show-bg");
 };
-const render = async (userName) => {
-  const profile = document.querySelector(".avatar_url");
-  const userLink = document.querySelector(".html_url");
-  const coress = document.querySelectorAll("[data-role]");
-  const user = await fetchFromApi(userName, "user");
-  userLink.href = user.html_url;
-  profile.src = user.avatar_url;
-  coress.forEach((data) => {
-    data.innerHTML = "";
-    data.innerHTML = user[data.dataset.role];
-  });
-  if (!recentProfiles.includes(userName)) {
-    recentProfiles.push(userName);
-    localStorage.setItem("gitHubUserName", JSON.stringify(recentProfiles));
-  }
-};
 
 function debounce(myFunc, delay = 100) {
   let timer;
@@ -89,15 +68,29 @@ function debounce(myFunc, delay = 100) {
   };
 }
 
-
-
-function showUserDetails(e) {
+async function showUserDetailsProfileCard(e) {
   const userList = e.target.closest("li");
+  const profile = document.querySelector(".avatar_url");
+  const userLink = document.querySelector(".html_url");
+  const coress = document.querySelectorAll("[data-role]");
   if (userList) {
-    const userName = e.target.closest("div").querySelector(".user-name");
-    render(userName.textContent.slice(1));
     profileDetailsCon.classList.remove("hidden");
-    const avatar_url = e.target.closest("div").querySelector("img");
+    const userName = e.target
+      .closest("div")
+      .querySelector(".user-name")
+      .textContent.replace("@", "");
+    const user = await fetchFromApi(userName, "user");
+    userLink.href = user.html_url;
+    profile.src = user.avatar_url;
+    coress.forEach((data) => {
+      data.innerHTML = "";
+      data.innerHTML = user[data.dataset.role];
+    });
+
+    if (recentProfiles.includes(userName)) return;
+    if (recentProfiles.length === 5) recentProfiles.pop();
+    recentProfiles.unshift(userName);
+    saveToLocalStorage("gitHubUserNames", recentProfiles);
   }
 }
 
@@ -107,5 +100,3 @@ function checkEmptyList() {
     emptyState.classList.remove("hidden");
   else emptyState.classList.add("hidden");
 }
-
-
