@@ -1,276 +1,353 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Google icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<head>
-  <!-- Google icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gitpeek</title>
+  </head>
 
-  <!-- Google fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap"
-    rel="stylesheet" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gitpeek</title>
-</head>
-
-<body class="[&_h2]:[font-family:'Sora'] [font-family:'Manrope']">
-  <div class="landing-page absolute w-full z-10 top-0 overflow-x-hidden">
-    <header class="p-4 fixed z-9999 w-full text-[#fff] transition-[background-color] ease-out duration-200"
-      id="main-header">
-      <div class="flex flex-row align-middle justify-between">
-        <div class="flex items-center justify-center">
-          <span class="material-icons-outlined text-[21px]">hub</span>
-          <span class="text-[1.4rem] [font-family:'Space Grotesk'] ml-1 tracking-wider">Gitpeek</span>
+  <body class="[&_h2]:[font-family:'Sora'] [font-family:'Manrope']">
+    <div class="landing-page absolute w-full z-10 top-0 overflow-x-hidden">
+      <header
+        class="p-4 fixed z-9999 w-full text-[#fff] transition-[background-color] ease-out duration-200"
+        id="main-header"
+      >
+        <div class="flex flex-row align-middle justify-between">
+          <div class="flex items-center justify-center">
+            <span class="material-icons-outlined text-[21px]">hub</span>
+            <span
+              class="text-[1.4rem] [font-family:'Space Grotesk'] ml-1 tracking-wider"
+              >Gitpeek</span
+            >
+          </div>
+          <nav class="text-sm max-[1024px]:hidden">
+            <ul class="flex [&>li]:block [&>li]:mr-5">
+              <li><a href="#About">About</a></li>
+              <li><a href="#Features">Features</a></li>
+              <li><a href="#How-it-works">How it Works?</a></li>
+              <li><a href="#Did-you-know">Did you Know?</a></li>
+            </ul>
+          </nav>
+          <button class="min-[1024px]:hidden menu-btn">
+            <span class="material-icons text-[20px] cursor-pointer">menu</span>
+            <span
+              class="material-icons text-[20px] cursor-pointer close-btn hidden"
+              >close</span
+            >
+          </button>
         </div>
-        <nav class="text-sm max-[1024px]:hidden">
-          <ul class="flex [&>li]:block [&>li]:mr-5">
-            <li><a href="#About">About</a></li>
+      </header>
+      <div
+        class="fixed top-16 w-full z-999 bg-[#0e0e0e]/80 backdrop-blur-sm drop-menu opacity-0 transition-opacity ease-in-out duration-150 min-[1024px]:hidden"
+        id="drop-down-menu"
+      >
+        <nav class="text-sm text-white h-full" id="dropdown-nav">
+          <ul
+            class="[&>li]:block [&>li]:mr-5 flex flex-col items-center [&>li]:p-3 pb-4"
+          >
+            <li><a href="#About" class="about">About</a></li>
             <li><a href="#Features">Features</a></li>
             <li><a href="#How-it-works">How it Works?</a></li>
             <li><a href="#Did-you-know">Did you Know?</a></li>
           </ul>
         </nav>
-        <button class="min-[1024px]:hidden menu-btn">
-          <span class="material-icons text-[20px] cursor-pointer">menu</span>
-          <span class="material-icons text-[20px] cursor-pointer close-btn hidden">close</span>
-        </button>
       </div>
-    </header>
-    <div
-      class="fixed top-16 w-full z-999 bg-[#0e0e0e]/80 backdrop-blur-sm drop-menu opacity-0 transition-opacity ease-in-out duration-150 min-[1024px]:hidden"
-      id="drop-down-menu">
-      <nav class="text-sm text-white h-full" id="dropdown-nav">
-        <ul class="[&>li]:block [&>li]:mr-5 flex flex-col items-center [&>li]:p-3 pb-4">
-          <li><a href="#About" class="about">About</a></li>
-          <li><a href="#Features">Features</a></li>
-          <li><a href="#How-it-works">How it Works?</a></li>
-          <li><a href="#Did-you-know">Did you Know?</a></li>
-        </ul>
-      </nav>
-    </div>
-    <main class="[&_h2]:xl:text-3xl [&_h2]:pt-10 [&_h2]:text-3xl">
-      <!-- Hero -->
-      <section id="About"
-        class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0 px-4">
-        <div
-          class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65">
-        </div>
-        <div
-          class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65">
-        </div>
-        <div class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center">
-          <h1 class="text-4xl min-md:text-5xl xl:text-7xl [font-family:'Sora']">
-            Discover GitHub Developers instantly
-          </h1>
-          <p class="my-4 text-[1rem] max-[1000px]:w-[80%] text-center mx-auto">
-            Search profiles, explore projects and track opensource activity
-            all in one place
-          </p>
-          <button class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC] explore-btn">
-            Explore GitHub Developers
-            <span class="material-icons">arrow_outward</span>
-          </button>
-        </div>
-      </section>
-      <!-- Features highlights -->
-      <section class="text-[#0e0e0e] px-4 bg-[#fafafa]" id="Features">
-        <h2>Features Highlights:</h2>
-        <div 
-          class="[&>div]:p-6 grid min-[1024px]:grid-cols-2 gap-y-3 gap-x-4 [&>div]:rounded-xl mt-5 [&>div]:backdrop-blur-3xl [&>div]:bg-white [&>div]:ring-1 [&>div]:ring-gray-200 [&>div]:shadow-md [&_p]:text-gray-500 [&_.material-icons-outlined]:text-[#6843EC] [&_.material-icons-outlined]:min-[1024px]:text-3xl [&_.material-icons-outlined]:text-2xl [&>div]:hover:ring-[#6843EC] [&>div]:cursor-pointer [&>div]:hover:shadow-xl [&>div]:hover:scale-[1.01] [&>div]:transition-all ease-in-out">
-          <div>
-            <span class="material-icons-outlined">search</span>
-            <p>Real time search.</p>
+      <main class="[&_h2]:xl:text-3xl [&_h2]:pt-10 [&_h2]:text-3xl">
+        <!-- Hero -->
+        <section
+          id="About"
+          class="text-center h-screen w-full relative bg-[#0E0E0E] overflow-hidden text-[#fff] top-0 px-4"
+        >
+          <div class="absolute bottom-0 left-[50%] translate-x-[-50%] mb-4 scroll-down transition-all ease-in-out">
+            <div class="animate-bounce"><span class="material-icons-outlined ">arrow_downward</span></div>
+            <p class="text-amber-50 text-sm">scroll down</p>
           </div>
-          <div>
-            <span class="material-icons-outlined">person</span>
-            <p>Detailed Profiles.</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined">folder_open</span>
-            <p>Repo Explorer.</p>
-          </div>
-          <div>
-            <span class="material-icons-outlined">bolt</span>
-            <p>Fast, Lightweight, Mobile Friendly</p>
-          </div>
-        </div>
-      </section>
-      <!-- How it works -->
-      <section id="How-it-works" class="px-4 bg-[#f5ffd8] mt-20">
-        <h2>How it works?</h2>
-        <h3 class="text-[1.1rem] my-3 mb-7">
-          From search to discovery here's what happens when you use Gitpeek
-        </h3>
-        <div
-          class="pb-20 grid space-x-8 min-[1024px]:grid-cols-2 gap-3 [&>div]:flex [&_.flow-num]:bg-[#b3d73b] [&_.flow-num]:py-3 [&_.flow-num]:text-white [&_.flow-num]:font-bold [&_.flow-num]:text-2xl [&>div]:gap-4 [&>div]:align-middle [&_h4]:[&_h2]:[font-family:'Sora']-semibold [&_h4]:text-shadow-2xs [&_h4]:text-lg [&_p]:text-sm [&_p]:text-[#0e0e0e] [&_.flow-num]:px-5 [&_.flow-num]:rounded-l-lg [&_.flow-num]:flex [&_h4]:text-[#0e0e0e] [&_.flow-num]:align-middle [&_.flow-num]:justify-center [&_.flow-num]:shadow-xl [&_.flow-num]:cursor-pointer [&_.flow-num]:hover:scale-[1.05] [&_.flow-num]:transition-all ease-in-out [&_p]:text-shadow-2xs [&_.flow-num]:w-[50px]">
-          <div>
-            <div class="flow-num">1</div>
-            <div class="label-con">
-              <h4>Search a username</h4>
-              <p>Enter any GitHub username in the search bar.</p>
-            </div>
-          </div>
-          <div>
-            <div class="flow-num">2</div>
-            <div class="label-con">
-              <h4>View instant suggestions</h4>
-              <p>Live dropdown helps you find the right dev fast.</p>
-            </div>
-          </div>
-          <div>
-            <div class="flow-num">3</div>
-            <div class="label-con">
-              <h4>Explore Developer profile.</h4>
-              <p>See avatar, bio, location, followers, and more.</p>
-            </div>
-          </div>
-          <div>
-            <div class="flow-num">4</div>
-            <div class="label-con">
-              <h4>Check out their Repos</h4>
-              <p>Visit developer profile in one click.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="Did-you-know" class="px-4 bg-[#0e0e0e] text-white">
-        <h2 class="text-center">Did you know?</h2>
-        <div
-          class="mt-5 pb-15 [&>div]:border-l-4 [&>div]:border-[#6843ec] [&>div]:p-2 [&>div]:mb-2 [&>div]:bg-[#1a1a1a] [&>div]:rounded-md [&>div]:min-[1024px]:w-[50%] [&>div]:mx-auto [&>div]:cursor-pointer [&>div]:w-100% [&>div]:hover:scale-[1.01] [&>div]:transition-transform ease-in-out">
-          <div>
-            <p>You dont need a GitHub Account to use GitPeek.</p>
-          </div>
-          <div>
-            <p>You can explore public profiles without logging in.</p>
-          </div>
-          <div>
-            <p>
-              Your recent searches are stored locally, only you can see them.
+          <div
+            class="bg-radial-[circle_at_left,#6843EC_10%,transparent_70%] absolute left-[-200px] bottom-[-150px] blur-3xl z-0 w-[60%] h-[100vh] opacity-65"
+          ></div>
+          <div
+            class="bg-radial-[circle_at_top,#6843EC_6%,transparent_60%] absolute top-[-320px] blur-3xl w-[60%] h-[100vh] left-[40%] opacity-65"
+          ></div>
+          <div
+            class="mx-auto px-2 container w-[100%] h-full relative align-middle flex flex-col justify-center"
+          >
+            <h1
+              class="text-4xl min-md:text-5xl xl:text-7xl [font-family:'Sora']"
+            >
+              Discover GitHub Developers instantly
+            </h1>
+            <p
+              class="my-4 text-[1rem] max-[1000px]:w-[80%] text-center mx-auto"
+            >
+              Search profiles, explore projects and track opensource activity
+              all in one place
             </p>
-          </div>
-          <div>
-            <p>
-              GitPeek was built to work perfectly on mobile no compromise.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="border-none bg-[#0e0e0e] pt-5 pb-10 text-white text-center text-sm">
-      <div>
-        &copy; 2025 GitPeek. Crafted with
-        <span class="material-icons-outlined">bolt</span>by ibrahim and
-        Joshua.
-      </div>
-      <div class="mt-3">
-        <a href="#" class="hover:underline">Terms</a><a href="#" class="hover:underline ml-3">Privacy</a>
-      </div>
-    </footer>
-  </div>
-  <!-- search page -->
-  <section class="h-screen overflow-x-hidden bg-[#0e0e0e] px-4 xl:px-40 absolute w-full top-0" id="search-page">
-    <header class="py-4 items-center bg-[#0e0e0e] text-white">
-      <div class="w-full flex justify-between">
-        <h1 class="font-semibold text-lg">Discover Developers</h1>
-        <span class="material-icons-outlined text-2xl text-[#6843ec] cursor-pointer" id="search-btn">search</span>
-      </div>
-    </header>
-    <form action="" class="mt-5 transition-all ease-in-out relative w-full">
-      <input type="search"
-        class="text-white p-2 pl-5 rounded-xl w-full bg-white/5 outline-0 placeholder:text-gray-400 focus:ring-2 focus:ring-[#6843ec] ring-1"
-        placeholder="Search" name="searchInput" />
-      <div class="text-amber-50 mt-4 bg-[#1e1e1e] rounded-xl p-4 hidden absolute z-10 w-full" id="search-suggestions">
-        <h1 class="text-xl mb-1 font-bold">Top Results</h1>
-        <p class="text-[0.9rem] mb-3">Who are you looking for?</p>
-        <div class="m-auto w-max text-gray-400  text-center hidden" id="no-results">
-          <span class="material-icons text-[1.5rem]">search_off</span>
-          <p class="text-sm m-2.5r">No user found</p>
-        </div>
-        <ul class="[&>li]:mb-2 [&>li]:cursor-pointer [&>li]:w-full [&>li]:hover:" id="search-sugg-results"></ul>
-      </div>
-    </form>
-    <div class="text-white mt-5">
-      <h3 class="text-xl font-bold">Recent Profiles</h3>
-      <ul class="mt-4 [&>li]:pb-3 [&>li]:cursor-pointer [&>li]:hover:" id="recent-profiles"></ul>
-    </div>
-    <div class="text-center absolute left-0 right-0 top-[50%]" id="empty-state">
-      <div class="">
-        <span class="material-icons-outlined text-amber-50 text-6xl opacity-40">person_search</span>
-        <p class="text-gray-400 text-sm mt-2 text-center">
-          Click the search icon above to search devlopers.<br />
-          Recent profile will show up here after your seearch.
-        </p>
-      </div>
-    </div>
-    <!-- profile -->
-    <div
-      class="text-amber-50 absolute min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] left-[50%] translate-x-[-50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden z-50">
-      <span class="material-icons absolute right-0 p-2 close cursor-pointer">close</span>
-      <div class="mt-15 px-6">
-        <div class="grid grid-cols-2">
-          <div class=" rounded-l-xl overflow-hidden">
-            <img src="" alt="" class="w-full h-full object-cover avatar_url" />
-          </div>
-          <div class="bg-[#0e0e0e] py-6 px-4 rounded-r-xl [&_P]:mb-1 flex flex-col justify-center">
-            <h1 class="text-2xl font-semibold line-clamp-3" data-role="name"></h1>
-            <p class="text-sm text-[#a694ff] line-clamp-3">@<span data-role="login"></span></p>
-            <p class="text-xs text-gray-500">
-              #<span data-role="id"></span>
-            </p>
-            <p class="text-[0.8rem] text-gray-400 line-clamp-3">
-              bio: <span data-role="bio"></span>
-            </p>
-            <button class="text-[.8rem] min-[300px]:text-[.7rem] bg-[#6843ec] rounded-xl py-[3px] px-3.5 mt-3 hover:scale-[0.97] transition-all ease-in-out hover:bg-[#6843ec]">
-              <a href="" target="_blank" class="html_url">Visit User Profile</a>
+            <button
+              class="cursor-pointer p-2 px-5 mx-auto block rounded-2xl text-[0.9rem] bg-[#6843EC] explore-btn"
+            >
+              Explore GitHub Developers
+              <span class="material-icons">arrow_outward</span>
             </button>
           </div>
+        </section>
+        <!-- Features highlights -->
+        <section class="text-[#0e0e0e] px-4 bg-[#fafafa]" id="Features">
+          <h2>Features Highlights:</h2>
+          <div
+            class="[&>div]:p-6 grid min-[1024px]:grid-cols-2 gap-y-3 gap-x-4 [&>div]:rounded-xl mt-5 [&>div]:backdrop-blur-3xl [&>div]:bg-white [&>div]:ring-1 [&>div]:ring-gray-200 [&>div]:shadow-md [&_p]:text-gray-500 [&_.material-icons-outlined]:text-[#6843EC] [&_.material-icons-outlined]:min-[1024px]:text-3xl [&_.material-icons-outlined]:text-2xl [&>div]:hover:ring-[#6843EC] [&>div]:cursor-pointer [&>div]:hover:shadow-xl [&>div]:hover:scale-[1.01] [&>div]:transition-all ease-in-out"
+          >
+            <div>
+              <span class="material-icons-outlined">search</span>
+              <p>Real time search.</p>
+            </div>
+            <div>
+              <span class="material-icons-outlined">person</span>
+              <p>Detailed Profiles.</p>
+            </div>
+            <div>
+              <span class="material-icons-outlined">folder_open</span>
+              <p>Repo Explorer.</p>
+            </div>
+            <div>
+              <span class="material-icons-outlined">bolt</span>
+              <p>Fast, Lightweight, Mobile Friendly</p>
+            </div>
+          </div>
+        </section>
+        <!-- How it works -->
+        <section id="How-it-works" class="px-4 bg-[#f5ffd8] mt-20">
+          <h2>How it works?</h2>
+          <h3 class="text-[1.1rem] my-3 mb-7">
+            From search to discovery here's what happens when you use Gitpeek
+          </h3>
+          <div
+            class="pb-20 grid space-x-8 min-[1024px]:grid-cols-2 gap-3 [&>div]:flex [&_.flow-num]:bg-[#b3d73b] [&_.flow-num]:py-3 [&_.flow-num]:text-white [&_.flow-num]:font-bold [&_.flow-num]:text-2xl [&>div]:gap-4 [&>div]:align-middle [&_h4]:[&_h2]:[font-family:'Sora']-semibold [&_h4]:text-shadow-2xs [&_h4]:text-lg [&_p]:text-sm [&_p]:text-[#0e0e0e] [&_.flow-num]:px-5 [&_.flow-num]:rounded-l-lg [&_.flow-num]:flex [&_h4]:text-[#0e0e0e] [&_.flow-num]:align-middle [&_.flow-num]:justify-center [&_.flow-num]:shadow-xl [&_.flow-num]:cursor-pointer [&_.flow-num]:hover:scale-[1.05] [&_.flow-num]:transition-all ease-in-out [&_p]:text-shadow-2xs [&_.flow-num]:w-[50px]"
+          >
+            <div>
+              <div class="flow-num">1</div>
+              <div class="label-con">
+                <h4>Search a username</h4>
+                <p>Enter any GitHub username in the search bar.</p>
+              </div>
+            </div>
+            <div>
+              <div class="flow-num">2</div>
+              <div class="label-con">
+                <h4>View instant suggestions</h4>
+                <p>Live dropdown helps you find the right dev fast.</p>
+              </div>
+            </div>
+            <div>
+              <div class="flow-num">3</div>
+              <div class="label-con">
+                <h4>Explore Developer profile.</h4>
+                <p>See avatar, bio, location, followers, and more.</p>
+              </div>
+            </div>
+            <div>
+              <div class="flow-num">4</div>
+              <div class="label-con">
+                <h4>Check out their Repos</h4>
+                <p>Visit developer profile in one click.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="Did-you-know" class="px-4 bg-[#0e0e0e] text-white">
+          <h2 class="text-center">Did you know?</h2>
+          <div
+            class="mt-5 pb-15 [&>div]:border-l-4 [&>div]:border-[#6843ec] [&>div]:p-2 [&>div]:mb-2 [&>div]:bg-[#1a1a1a] [&>div]:rounded-md [&>div]:min-[1024px]:w-[50%] [&>div]:mx-auto [&>div]:cursor-pointer [&>div]:w-100% [&>div]:hover:scale-[1.01] [&>div]:transition-transform ease-in-out"
+          >
+            <div>
+              <p>You dont need a GitHub Account to use GitPeek.</p>
+            </div>
+            <div>
+              <p>You can explore public profiles without logging in.</p>
+            </div>
+            <div>
+              <p>
+                Your recent searches are stored locally, only you can see them.
+              </p>
+            </div>
+            <div>
+              <p>
+                GitPeek was built to work perfectly on mobile no compromise.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="border-none bg-[#0e0e0e] pt-5 pb-10 text-white text-center text-sm"
+      >
+        <div>
+          &copy; 2025 GitPeek. Crafted with
+          <span class="material-icons-outlined">bolt</span>by ibrahim and
+          Joshua.
         </div>
+        <div class="mt-3">
+          <a href="#" class="hover:underline">Terms</a
+          ><a href="#" class="hover:underline ml-3">Privacy</a>
+        </div>
+      </footer>
+    </div>
+    <!-- search page -->
+    <section
+      class="h-screen overflow-x-hidden bg-[#0e0e0e] px-4 xl:px-40 absolute w-full top-0"
+      id="search-page"
+    >
+      <header class="py-4 items-center bg-[#0e0e0e] text-white">
+        <div class="w-full flex justify-between">
+          <h1 class="font-semibold text-lg">Discover Developers</h1>
+        </div>
+      </header>
+      <form action="" class="mt-5 transition-all ease-in-out relative w-full">
+        <input
+          type="search"
+          class="text-white p-2 pl-5 rounded-xl w-full bg-white/5 outline-0 placeholder:text-gray-400 focus:ring-2 focus:ring-[#6843ec] ring-1"
+          placeholder="Try 'knowingeyes'"
+          name="searchInput"
+        />
         <div
-          class="pb-8 grid grid-cols-2 [&>div]:h-[auto] [&>div]:hover:scale-[1.035] [&>div]:transition [&>div]:ease-in-out [&>div]:duration-200 [&>div]:hover:ring-1 [&>div]:hover:ring-[#6843ec]/50 gap-3 [&>div]:rounded-xl
-           [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm">
-          <div>
-            <span class="material-icons-outlined text-[#6843ec]">group</span>
-            <p class="font-bold">Followers</p>
-            <p data-role="followers"></p>
+          class="text-amber-50 mt-4 bg-[#1e1e1e] rounded-xl p-4 hidden absolute z-10 w-full"
+          id="search-suggestions"
+        >
+          <h1 class="text-xl mb-1 font-bold">Top Results</h1>
+          <p class="text-[0.9rem] mb-3">Who are you looking for?</p>
+          <div
+            class="m-auto w-max text-gray-400 text-center hidden"
+            id="no-results"
+          >
+            <span class="material-icons text-[1.5rem]">search_off</span>
+            <p class="text-sm m-2.5r">No user found</p>
           </div>
-          <div>
-            <span class="material-icons-outlined text-[#6843ec]">person_add</span>
-            <p class="font-bold">Following</p>
-            <p data-role="following"></p>
+          <ul
+            class="[&>li]:mb-2 [&>li]:cursor-pointer [&>li]:w-full [&>li]:hover:"
+            id="search-sugg-results"
+          ></ul>
+        </div>
+      </form>
+      <div class="text-white mt-5">
+        <h3 class="text-xl font-bold">Recent Profiles</h3>
+        <ul
+          class="mt-4 [&>li]:pb-3 [&>li]:cursor-pointer [&>li]:hover:"
+          id="recent-profiles"
+        ></ul>
+      </div>
+      <div
+        class="text-center absolute left-0 right-0 top-[50%]"
+        id="empty-state"
+      >
+        <div class="">
+          <span
+            class="material-icons-outlined text-amber-50 text-6xl opacity-40"
+            >person_search</span
+          >
+          <p class="text-gray-400 text-sm mt-2 text-center">
+            Click the input field above to search devlopers.<br />
+            Recent profiles will show up here after your seearch.
+          </p>
+        </div>
+      </div>
+      <!-- profile -->
+      <div
+        class="text-amber-50 fixed min-[1024px]:w-[500px] w-[90%] top-10 h-auto bg-[#1a1a1a] right-[50%] translate-x-[50%] rounded-xl ring-1 ring-gray-300/20 profile-details hidden z-50"
+      >
+        <span class="material-icons absolute right-0 p-2 close cursor-pointer"
+          >close</span
+        >
+        <div class="mt-15 px-6">
+          <div class="grid grid-cols-2">
+            <div class="rounded-l-xl overflow-hidden">
+              <img
+                src=""
+                alt="GitHub"
+                class="w-full h-full object-cover avatar_url"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="bg-[#0e0e0e] py-6 px-4 rounded-r-xl [&_P]:mb-1 flex flex-col justify-center"
+            >
+              <h1
+                class="text-2xl font-semibold line-clamp-3"
+                data-role="name"
+              ></h1>
+              <p class="text-sm text-[#a694ff] line-clamp-3">
+                @<span data-role="login"></span>
+              </p>
+              <p class="text-xs text-gray-500">#<span data-role="id"></span></p>
+              <p class="text-[0.8rem] text-gray-400 line-clamp-3">
+                bio: <span data-role="bio"></span>
+              </p>
+              <button
+                class="text-[.8rem] min-[300px]:text-[.7rem] bg-[#6843ec] rounded-xl py-[3px] px-3.5 mt-3 hover:scale-[0.97] transition-all ease-in-out hover:bg-[#6843ec]"
+              >
+                <a href="" target="_blank" class="html_url"
+                  >Visit User Profile</a
+                >
+              </button>
+            </div>
           </div>
-          <div>
-            <span class="material-icons-outlined text-[#b3d73b]">folder</span>
-            <p class="font-bold">Public Repos</p>
-            <p data-role="public_repos"></p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-[#b3d73b]">code</span>
-            <p class="font-bold">Gists</p>
-            <p data-role="public_gists"></p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-gray-400">place</span>
-            <p class="font-bold">Location</p>
-            <p data-role="location"></p>
-          </div>
-          <div>
-            <span class="material-icons-outlined text-gray-400">work</span>
-            <p class="font-bold">Company</p>
-            <p data-role="company"></p>
+          <div
+            class="pb-8 grid grid-cols-2 [&>div]:h-[auto] [&>div]:hover:scale-[1.035] [&>div]:transition [&>div]:ease-in-out [&>div]:duration-200 [&>div]:hover:ring-1 [&>div]:hover:ring-[#6843ec]/50 gap-3 [&>div]:rounded-xl [&>div]:bg-[#0e0e0e]/90 [&>div]:shadow-xl mt-8 [&>div]:p-2 [&>div]:ring-1 [&>div]:ring-gray-300/5 [&_span]:text-xl [&_p]:text-sm"
+          >
+            <div>
+              <span class="material-icons-outlined text-[#6843ec]">group</span>
+              <p class="font-bold">Followers</p>
+              <p data-role="followers"></p>
+            </div>
+            <div>
+              <span class="material-icons-outlined text-[#6843ec]"
+                >person_add</span
+              >
+              <p class="font-bold">Following</p>
+              <p data-role="following"></p>
+            </div>
+            <div>
+              <span class="material-icons-outlined text-[#b3d73b]">folder</span>
+              <p class="font-bold">Public Repos</p>
+              <p data-role="public_repos"></p>
+            </div>
+            <div>
+              <span class="material-icons-outlined text-[#b3d73b]">code</span>
+              <p class="font-bold">Gists</p>
+              <p data-role="public_gists"></p>
+            </div>
+            <div>
+              <span class="material-icons-outlined text-gray-400">place</span>
+              <p class="font-bold">Location</p>
+              <p data-role="location"></p>
+            </div>
+            <div>
+              <span class="material-icons-outlined text-gray-400">work</span>
+              <p class="font-bold">Company</p>
+              <p data-role="company"></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="bg-[#0e0e0e] fixed h-full w-full top-0 left-0 z-100 hidden" id="fake-loader">
-      <div class="border-5 border-[#6843ec] w-[40px] h-[40px] rounded-full shadow-white absolute top-[50%] left-[50%] translate-x-[-50%] border-t-transparent animate-spin">
-        <!-- <div class="bg-[#0e0e0e] w-[30px] h-[30px] rounded-full left-[-15px] absolute"></div> -->
-         <svg></svg>
+      <div
+        class="bg-[#0e0e0e] fixed h-full w-full top-0 left-0 z-100 hidden"
+        id="fake-loader"
+      >
+        <div
+          class="border-5 border-[#6843ec] w-[40px] h-[40px] rounded-full shadow-white absolute top-[50%] left-[50%] translate-x-[-50%] border-t-transparent animate-spin"
+        >
+          <!-- <div class="bg-[#0e0e0e] w-[30px] h-[30px] rounded-full left-[-15px] absolute"></div> -->
+          <svg></svg>
+        </div>
       </div>
-    </div>
-  </section>
-  <script type="module" src="/src/main.js"></script>
-</body>
-
+    </section>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

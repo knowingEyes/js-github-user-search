@@ -25,6 +25,7 @@ const searchPage = document.getElementById("search-page");
 const profileDetailsCon = document.querySelector(".profile-details");
 const explore = document.querySelector(".explore-btn");
 const recentProfilesUl = document.getElementById("recent-profiles");
+const scrollDown = document.querySelector(".scroll-down");
 
 const store = {
   isMenuOpen: false,
@@ -41,12 +42,15 @@ export {
 };
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 4) {
+  if (window.scrollY > 6) {
     rmDropDown();
     addHeadBg();
+    scrollDown.classList.add("opacity-0");
   } else {
     rmHeadBg();
+    scrollDown.classList.remove("opacity-0");
   }
+
   rmDropDown();
 });
 
@@ -68,9 +72,6 @@ dropDownMenu.addEventListener("click", (e) => {
   if (e.target.matches("a")) rmDropDown();
   if (e.target.matches(".about")) closeMenuRmHeadBg();
 });
-searchBtn.addEventListener("click", () => {
-  formInput.classList.remove("opacity-0");
-});
 
 searchInput.addEventListener("input", (e) => {
   if (e.target.value !== "") {
@@ -83,7 +84,7 @@ searchInput.addEventListener("input", (e) => {
 
 profileDetailsCon.addEventListener("click", (e) => {
   if (e.target.matches(".close")) {
-    FetchAndRenderRecentProfiles()
+    FetchAndRenderRecentProfiles();
     profileDetailsCon.classList.add("hidden");
     searchSuggCon.classList.add("hidden");
     searchInput.value = "";

@@ -96,7 +96,6 @@ async function showUserDetailsProfileCard(e) {
 
 function checkEmptyList() {
   const emptyState = document.getElementById("empty-state");
-  if (recentProfilesUl.children.length !== 0)
-    emptyState.classList.remove("hidden");
-  else emptyState.classList.add("hidden");
+  if (!recentProfiles.length) return emptyState.classList.remove("hidden");
+  emptyState.classList.add("hidden");
 }
