@@ -30,3 +30,4 @@ export async function fetchFromApi(query, type) {
     return error;
   }
 }
+console.log();

@@ -7,10 +7,6 @@ import "aos/dist/aos.css";
 import { checkEmptyList } from "./helper.js";
 import { FetchAndRenderRecentProfiles } from "./recentProfiles.js";
 
-// export const recentProfiles = [
-//   ...(JSON.parse(localStorage.getItem("gitHubUserName")) || []),
-// ];
-
 document.addEventListener("DOMContentLoaded", () => {
   FetchAndRenderRecentProfiles();
   AOS.init({
@@ -19,8 +15,5 @@ document.addEventListener("DOMContentLoaded", () => {
     easing: "ease-out-cubic",
     offset: 50,
   });
-  // renderToUl(recentProfiles, recentProfilesUl);
   checkEmptyList();
 });
-
-// AOS.refresh()
